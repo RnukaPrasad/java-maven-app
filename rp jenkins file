@@ -23,7 +23,8 @@ pipeline {
 		stage ('test') {
 			steps {
 			    dir ('java-maven-app'){
-			        sh 'mvn test'
+			        echo "test process"
+				sh 'mvn test'
 			    }
 			}
 			post {
