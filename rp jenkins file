@@ -23,7 +23,7 @@ pipeline {
 		stage ('test') {
 			steps {
 			    dir ('java-maven-app'){
-			        echo "testing going on"
+			        echo "testing"
 				sh 'mvn test'
 			    }
 			}
