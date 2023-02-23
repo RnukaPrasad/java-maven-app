@@ -18,4 +18,11 @@ pipeline {
 		}
 		
 	}
+	stage ('run') {
+			steps {
+			   sh './scripts/deliver.sh'
+			}
+	    }
+   }
 }
+
