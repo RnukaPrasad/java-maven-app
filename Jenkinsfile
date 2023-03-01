@@ -1,18 +1,17 @@
 pipeline {
-	agent {
-		label 'ssh'
-	}tool{
+	agent any
+	tool{
 	  maven	'Maven'
 	}
 	stages {
 		stage('Build') {
 			steps {
-				sh 'clean install'
+				sh 'mvn clean install'
 			}
 		}
 		stage('Test') {
 			steps {
-				sh 'test'
+				sh 'mvn test'
 			}
 			post {
 				always {
@@ -20,8 +19,7 @@ pipeline {
 				}
 			}
 		}
-		
-	}
+
 	stage ('run') {
 			steps {
 			   sh './scripts/deliver.sh'
