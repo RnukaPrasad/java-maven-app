@@ -1,6 +1,5 @@
 pipeline {
     agent any
-	
     stages {
         stage ('clean up') {
 	        steps {
@@ -12,7 +11,6 @@ pipeline {
                 sh 'git clone https://github.com/RnukaPrasad/java-maven-app.git'
             }
         }
-
         stage('SonarQube analysis') {
             steps {
 		   dir ('java-maven-app'){ 
@@ -24,8 +22,7 @@ pipeline {
                }
            }
 	    stage ('Deploy Artifact') {
-
-            steps {
+              steps {
 		dir ('java-maven-app'){ 
 		archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
                 rtUpload (
@@ -38,9 +35,5 @@ pipeline {
             			}
          			]
     			}'''
-
             	)
-		}
-        }
-        }
-    }
+		}}}}
